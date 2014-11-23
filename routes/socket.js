@@ -16,6 +16,7 @@ module.exports = function (io) {
     socket.on('users:add', function(user){
       console.log('New user');
       connectedUsers.push(user);
+      socket.join(user.chatroom);
       sockets[user.id] =  socket;
       io.sockets.emit('users:add', connectedUsers);
     });
@@ -24,9 +25,13 @@ module.exports = function (io) {
       sockets[data.to].emit("message:new", data.message);
     });
 
+    socket.on('chatroom:change', function(data){
+      socket.leave(data.old);
+      socket.join(data.new);
+    });
+
     socket.on('message:new', function (msg) {
-      console.log('New message');
-      io.sockets.emit('message:new', msg);
+      io.sockets.in(msg.user.chatroom).emit('message:new', msg);
     });
 
   });
