@@ -12,13 +12,17 @@ angular.module('myApp', [
   'btford.socket-io'
 ]).
 config(function ($routeProvider, $locationProvider) {
-  $routeProvider.
-    when('/chatroom', {
+  $routeProvider
+    .when('/chatroom', {
       templateUrl: 'partials/chatroom',
       controller: 'ChatroomCtrl'
     })
+    .when('/login', {
+      templateUrl: 'partials/login',
+      controller: 'LoginCtrl'
+    })
     .otherwise({
-      redirectTo: '/chatroom'
+      redirectTo: '/login'
     });
 
   $locationProvider.html5Mode(true);

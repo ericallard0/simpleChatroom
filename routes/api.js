@@ -7,3 +7,12 @@ exports.name = function (req, res) {
     name: 'Eric'
   });
 };
+
+exports.getId = function(){
+  var i = 0;
+  return exports.id = function(req, res){
+    res.json({
+      id: i++
+    });
+  };
+};
