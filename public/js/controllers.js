@@ -11,7 +11,9 @@ angular.module('myApp.controllers', []).
     });
     socket.on("users:add", function(data){
       $scope.users = data;
-      console.log($scope.users);
+    });
+    socket.on("users:remove", function(data){
+      $scope.users = data;
     });
   })
   .controller('LoginCtrl', function ($scope, socket, $location) {

@@ -13,7 +13,7 @@ div.col-md-4
     input(type='submit')
 
 div.col-md-4
-  h2 Chatroom: "{{newChatroom}}"
+  h2 Chatroom: "{{user.chatroom}}"
   form(ng-submit="goToChatroom()")
     input(type='text', ng-model='newChatroom')
     input(type='submit')

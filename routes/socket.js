@@ -5,24 +5,21 @@
 
 module.exports = function (io) {
   'use strict';
-  var connectedUsers = [];
-  var sockets = [] 
+  var connectedUsers = {};
   io.on('connection', function (socket) {
-    //TODO Refresh connectedUsers list when someone disconect
-    socket.on('disconect', function(data){
-      console.log(data);
+    var id = null;
+    socket.on('disconnect', function(){
+      delete connectedUsers["id" + id]; 
+      console.log("user disconnect id:" + id);
+      io.sockets.emit('users:add', connectedUsers);
     });
 
     socket.on('users:add', function(user){
       console.log('New user');
-      connectedUsers.push(user);
       socket.join(user.chatroom);
-      sockets[user.id] =  socket;
+      id = user.id;
+      connectedUsers["id" + id] = user;
       io.sockets.emit('users:add', connectedUsers);
-    });
-
-    socket.on("privatemessage", function(data){
-      sockets[data.to].emit("message:new", data.message);
     });
 
     socket.on('chatroom:change', function(data){
