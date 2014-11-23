@@ -1,8 +1,8 @@
 extends layout
 
 block body
-  div(ng-controller='AppCtrl')
-    div(ng-view)
+  div.container(ng-controller='AppCtrl')
+    div.row(ng-view)
 
   script(src='/socket.io/socket.io.js')
   script(src='bower_components/angular/angular.js')
