@@ -6,14 +6,20 @@ angular.module('myApp.controllers', []).
   controller('AppCtrl', function ($scope, $http, socket) {
     $scope.user = {name:"", id:"", chatroom: 'default'};
     $scope.users = [];
+    var convertUsersToArray = function(users){
+      $scope.users = [];
+      for(var k in users){
+        $scope.users.push(users[k]);
+      }
+    };
     $http.get('/api/id').success(function(data){
       $scope.user.id = data.id;
     });
     socket.on("users:add", function(data){
-      $scope.users = data;
+      convertUsersToArray(data);
     });
     socket.on("users:remove", function(data){
-      $scope.users = data;
+      convertUsersToArray(data);
     });
   })
   .controller('LoginCtrl', function ($scope, socket, $location) {
