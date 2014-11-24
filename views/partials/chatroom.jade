@@ -1,19 +1,35 @@
-div.col-md-4
-  h2 Connected users:
-  ul
-    li(ng-repeat='user in users') {{user.name}}
+div.row
+  div.col-xs-4.col-sm-4.col-md-4
+    h2 Connected users:
 
-div.col-md-4
-  h2 Messages:
-  ul
-    li(ng-repeat='message in messages')
-      p {{message.text}} // {{message.user.name}}
-  form(ng-submit="addMessage()")
-    input(type='text', ng-model='newMessage')
-    input(type='submit')
+  div.col-xs-4.col-sm-4.col-md-4
+    h2 Messages:
 
-div.col-md-4
-  h2 Chatroom: "{{user.chatroom}}"
-  form(ng-submit="goToChatroom()")
-    input(type='text', ng-model='newChatroom')
-    input(type='submit')
+  div.col-xs-4.col-sm-4.col-md-4
+    h2 Chatroom: "{{user.chatroom}}"
+
+
+div.row
+  div.col-xs-4.col-sm-4.col-md-4
+    div.input-group
+      span.input-group-addon
+        i.fa.fa-search
+      input.form-control(placeholder="Search", ng-model="query")
+    ul.list-group
+      li.list-group-item(ng-repeat="user in users | filter:query")
+        p {{user.name}}
+
+  div.col-xs-4.col-sm-4.col-md-4
+    ul
+      li(ng-repeat='message in messages')
+        p {{message.text}} // {{message.user.name}}
+    form.input-group(ng-submit="addMessage()")
+      input.form-control(type='text', ng-model='newMessage')
+      span.input-group-btn
+        input.btn.btn-default(type='submit')
+
+  div.col-xs-4.col-sm-4.col-md-4
+    form.input-group(ng-submit="goToChatroom()")
+      input.form-control(type='text', ng-model='newChatroom')
+      span.input-group-btn
+        input.btn.btn-default(type='submit')
