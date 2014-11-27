@@ -1,4 +1,27 @@
-.modal { 
+html, body, div.main, div.main>div.container{
   display: block;
-  min-height: 300px !important;;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: #fcfcfc;
+  ul.connected-users{
+    padding: 0;
+    margin: 1em 0;
+  }
+  input[type="file"]{
+    clip: rect(0px 0px 0px 0px);
+  }
+  .group-span-filestyle>label{
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    margin-right: 0px;
+  }
+  div.bootstrap-filestyle{
+    margin-right: -2px;
+  }
 }
+
+@import "login";
+@import "dashboard";
+@import "chatroom";

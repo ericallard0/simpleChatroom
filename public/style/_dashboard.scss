@@ -1,0 +1,17 @@
+div#dashboard-container{
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  padding: 3em;
+  ul.selected-users-list{
+    margin-bottom: 7px;
+  }
+  button.invite-button{
+    float: right;
+    margin-bottom: 10px;
+  }
+  div.invitation-panel div.panel-body{
+    text-align: center;
+  }
+}

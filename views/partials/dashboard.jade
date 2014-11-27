@@ -1,0 +1,30 @@
+div#dashboard-container
+  div.row
+    div.col-xs-5.col-sm-5.col-md-5
+      h3 Connected users list 
+      p You can search a user and select him to a chatroom by clicking on him.
+      div.input-group
+        span.input-group-addon
+          i.fa.fa-search
+        input.form-control(ng-model="query")
+      ul.list-group.connected-users
+        li.list-group-item(ng-repeat="user in users | filter:{name: query}", ng-click="selectUser(user)") {{user.name}}
+
+    div.col-xs-5.col-xs-offset-1.col-sm-5.col-sm-offset-1.col-md-5.col-md-offset-1.container
+      div.row
+        h3 Users selected for a new chatroom
+        p You can remove a selected user by clicking on him.
+        ul.list-group.selected-users-list
+          li.list-group-item {{user.name}}
+          li.list-group-item(ng-repeat="user in selectedUsers", ng-click="unselectUser(user)") {{user.name}}
+        button.btn.btn-default.btn-lg.invite-button(type="button", ng-click="invite()") Invite to a new chatroom 
+      div.row
+        h3 Your invitations to chatroom
+        p(ng-if="invitations.length === 0") You don't have any invitation yet.
+        div.panel.panel-default.invitation-panel(ng-repeat="invitation in invitations")
+          div.panel-heading
+            h1.panel-title {{invitation.user.name}} invites you to a chatroom
+          div.panel-body
+              div.btn-group.btn-group-lg(role="group", aria-label="...")
+                button.btn.btn-default(type="button", ng-click="goToChatroom(invitation.chatroom)") Accept
+                button.btn.btn-default(type="button") Refuse

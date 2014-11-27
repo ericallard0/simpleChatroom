@@ -1,7 +1,9 @@
-div.row
-  div.col-xs-10.col-sm-6.col-md-4
-    h3 What's your name ?
-    form.input-group(ng-submit="login()")
-      input.form-control(type='text', ng-model='name')
-      span.input-group-btn
-        input.btn.btn-default(type='submit')
+div#login-container
+  div.panel.panel-default.login-panel
+    div.panel-heading
+      h1.panel-title Choose a name !
+    div.panel-body
+      form.input-group(ng-submit="login()")
+        input.form-control(type='text', ng-model='name')
+        span.input-group-btn
+          input.btn.btn-default(type='submit', value="Go")

@@ -1,0 +1,14 @@
+div#login-container{
+  background: #fcfcfc;
+  display: block;
+  width: 100%;
+  height: 100%;
+  .login-panel{
+    display: block;
+    height: 110px;
+    width: 40%;
+    position: absolute;
+    top: 30%;
+    left: 30%;  
+  }
+}

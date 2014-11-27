@@ -1,5 +1,84 @@
-.modal {
+html, body, div.main, div.main > div.container {
   display: block;
-  min-height: 300px !important; }
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: #fcfcfc; }
+  html ul.connected-users, body ul.connected-users, div.main ul.connected-users, div.main > div.container ul.connected-users {
+    padding: 0;
+    margin: 1em 0; }
+  html input[type="file"], body input[type="file"], div.main input[type="file"], div.main > div.container input[type="file"] {
+    clip: rect(0px 0px 0px 0px); }
+  html .group-span-filestyle > label, body .group-span-filestyle > label, div.main .group-span-filestyle > label, div.main > div.container .group-span-filestyle > label {
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    margin-right: 0px; }
+  html div.bootstrap-filestyle, body div.bootstrap-filestyle, div.main div.bootstrap-filestyle, div.main > div.container div.bootstrap-filestyle {
+    margin-right: -2px; }
+
+div#login-container {
+  background: #fcfcfc;
+  display: block;
+  width: 100%;
+  height: 100%; }
+  div#login-container .login-panel {
+    display: block;
+    height: 110px;
+    width: 40%;
+    position: absolute;
+    top: 30%;
+    left: 30%; }
+
+div#dashboard-container {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  padding: 3em; }
+  div#dashboard-container ul.selected-users-list {
+    margin-bottom: 7px; }
+  div#dashboard-container button.invite-button {
+    float: right;
+    margin-bottom: 10px; }
+  div#dashboard-container div.invitation-panel div.panel-body {
+    text-align: center; }
+
+div#chatroom-container {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  padding: 3em; }
+  div#chatroom-container div.row > div {
+    height: 100%; }
+  div#chatroom-container ul.chat {
+    padding-left: 0;
+    margin-bottom: 20px;
+    overflow: auto; }
+    div#chatroom-container ul.chat li.chat-message {
+      list-style: none;
+      border: 1px solid #bbb;
+      border-radius: 5px;
+      padding: 3px 4px;
+      margin: 10px 0;
+      display: inline-block;
+      min-width: 55%;
+      max-width: 90%;
+      float: left; }
+      div#chatroom-container ul.chat li.chat-message.mine {
+        float: right; }
+      div#chatroom-container ul.chat li.chat-message p {
+        margin: 4px; }
+        div#chatroom-container ul.chat li.chat-message p.name {
+          font-size: .9em;
+          color: #777;
+          font-style: italic;
+          text-align: left;
+          margin-bottom: 1px; }
+        div#chatroom-container ul.chat li.chat-message p.text {
+          margin-top: 1px;
+          text-align: right;
+          font-size: 1.1em; }
 
 /*# sourceMappingURL=main.css.map */

@@ -7,6 +7,7 @@ module.exports = function (io) {
   'use strict';
   var connectedUsers = {};
   var sockets = {};
+  var chatroomId = 0;
   io.on('connection', function (socket) {
     var id = null;
 
@@ -32,10 +33,14 @@ module.exports = function (io) {
     });
 
     socket.on('chatroom:invite', function(data){
-      for (k in data.usersId){
-        var id = data.usersId[k];
-        sockets["id"+id].emit('chatroom:invite', {chatroom: data.chatroom, user: data.user});
+      chatroomId ++;
+      for (var k in data.selected){
+        var id = data.selected[k].id;
+        sockets["id"+id].emit('chatroom:invite', {chatroom: "chatroom"+chatroomId, user: data.user});
       }
+      socket.leave(data.user.chatroom);
+      socket.join("chatroom"+chatroomId);
+      socket.emit('chatroom:new',{chatroom: "chatroom"+chatroomId});
     });
 
     socket.on('message:new', function (msg) {

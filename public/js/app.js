@@ -13,13 +13,17 @@ angular.module('myApp', [
 ]).
 config(function ($routeProvider, $locationProvider) {
   $routeProvider
-    .when('/chatroom', {
-      templateUrl: 'partials/chatroom',
-      controller: 'ChatroomCtrl'
-    })
     .when('/login', {
       templateUrl: 'partials/login',
       controller: 'LoginCtrl'
+    })
+    .when('/dashboard', {
+      templateUrl: 'partials/dashboard',
+      controller: 'DashboardCtrl'
+    })
+    .when('/chatroom', {
+      templateUrl: 'partials/chatroom',
+      controller: 'ChatroomCtrl'
     })
     .otherwise({
       redirectTo: '/login'

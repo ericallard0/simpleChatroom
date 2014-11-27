@@ -12,6 +12,7 @@
     "angular-route": "~1.2.14",
     "angular-bootstrap": "~0.12.0",
     "bootstrap": "~3.3.1",
-    "font-awesome": "~4.2.0"
+    "font-awesome": "~4.2.0",
+    "bootstrap-filestyle": "~1.1.2"
   }
 }

@@ -1,0 +1,45 @@
+div#chatroom-container{
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  padding: 3em;
+  div.row > div{
+    height: 100%;
+  }
+  ul.chat{
+    padding-left:0;
+    margin-bottom: 20px;
+    overflow: auto;
+
+    li.chat-message{
+      list-style: none;
+      border: 1px solid #bbb;
+      border-radius: 5px;
+      padding: 3px 4px;
+      margin: 10px 0;
+      display: inline-block;
+      min-width: 55%;
+      max-width: 90%;
+      float: left;
+      &.mine{
+        float: right;
+      }
+      p{
+        margin: 4px;
+        &.name{
+          font-size: .9em;
+          color: #777;
+          font-style: italic;
+          text-align: left;
+          margin-bottom: 1px;
+        }
+        &.text{
+          margin-top: 1px;
+          text-align: right;
+          font-size: 1.1em;
+        }
+      }
+    }
+  }
+}
